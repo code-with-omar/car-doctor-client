@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+:root {
+    --dark-01: #151515;
+    --dark-02: #444;
+    --dark-03: #737373;
+    --dark-04: #A2A2A2;
+    --dark-06: #E8E8E8;
+    --dark-07: #F3F3F3;
+    --dark-08: #2D2D2D;
+    --orange-01: #FF3811;
+    --white: #fff;
+    --green: #29B170;
+}
+
+/* font family  */
+.font-family {
+    font-family: "Inter", sans-serif;
+    ;
+}
+
+/* Font size  */
+.fs-16 {
+    font-size: 16px;
+}
+
+.fs-18 {
+    font-size: 18px;
+}
+
+.fs-20 {
+    font-size: 20px;
+}
+
+.fs-25 {
+    font-size: 25px;
+}
+
+.fs-35 {
+    font-size: 35px
+}
+
+.fs-40 {
+    font-size: 40px;
+}
+
+.fs-45 {
+    font-size: 45px;
+}
+
+/* Font color  */
+.font-dark-01 {
+    color: var(--dark-01);
+}
+
+.font-dark-02 {
+    color: var(--dark-02);
+}
+
+.font-dark-03 {
+    color: var(--dark-03);
+}
+
+.font-dark-04 {
+    color: var(--dark-04);
+}
+
+.font-dark-06 {
+    color: var(--dark-06);
+}
+
+.font-dark-07 {
+    color: var(--dark-08);
+}
+
+.font-orange {
+    color: var(--orange-01);
+}
+
+.font-white {
+    color: var(--white);
+}
+
+.font-green {
+    color: var(--green);
+}
+
+/* font weight  */
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+/* background-color  */
+.bg-dark-01 {
+    background: var(--dark-01);
+}
+
+.bg-dark-02 {
+    background: var(--dark-02);
+}
+
+.bg-dark-03 {
+    background: var(--dark-03);
+}
+
+.bg-dark-04 {
+    background: var(--dark-04);
+}
+
+.bg-dark-06 {
+    background: var(--dark-06);
+}
+
+.bg-dark-07 {
+    background: var(--dark-07);
+}
+
+.bg-orange-01 {
+    background: var(--orange-01);
+}
+
+.bg-green-01 {
+    background: var(--green);
+}
