@@ -134,3 +134,6 @@
 .bg-green-01 {
     background: var(--green);
 }
+.text-center{
+    text-align: center;
+}

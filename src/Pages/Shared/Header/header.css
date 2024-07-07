@@ -1,9 +1,12 @@
-.navbar-wrap{
+.navbar-wrap {}
 
-}
-.navbar-contains{
+.navbar-contains {}
 
+.navbar-band-img {
+    width: 101px;
+    height: 54.776px;
 }
-.navbar-band-img{
-    
+.navbar-band-img img{
+    width: 101px;
+    height: 54.776px;
 }
