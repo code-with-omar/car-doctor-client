@@ -47,7 +47,9 @@
 .fs-45 {
     font-size: 45px;
 }
-
+.fs-60{
+    font-size: 60px;
+}
 /* Font color  */
 .font-dark-01 {
     color: var(--dark-01);
@@ -137,8 +139,15 @@
 .text-center{
     text-align: center;
 }
+.line-height-30{
+    line-height: 30px;
+}
 .line-height-40{
     line-height: 40px;
+}
+
+.line-height-75{
+    line-height: 75px;
 }
 a{
     text-decoration: none;
