@@ -1,4 +1,4 @@
-import { Col, Container, Image, Row, Form } from 'react-bootstrap';
+import { Col, Container, Row, Form } from 'react-bootstrap';
 import './signUp.css';
 import LoginImage from './../../assets/images/login/login.svg';
 import { FaFacebookF, FaLinkedin } from "react-icons/fa";
@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 const SignUp = () => {
     return (
         <Container className='form-wrap'>
-            <Row md={2} className='d-flex justify-content-between login-left-side'>
-                <Col>
-                    <Image src={LoginImage} />
+            <Row md={2} className='d-flex justify-content-between'>
+                <Col className='login-left-side'>
+                    <img src={LoginImage} />
                 </Col>
                 <Col className='form-contains'>
                     <h3 className='fs-40 fw-600 text-center font-dark-02 '>Sign Up</h3>
