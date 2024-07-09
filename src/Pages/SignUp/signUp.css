@@ -1,0 +1,37 @@
+.form-wrap {}
+
+.login-left-side {}
+
+.form-contains {
+    border-radius: 10px;
+    border: 1px solid #D0D0D0;
+    padding: 75px;
+}
+
+.form-contain {
+    margin-top: 75px;
+
+}
+
+.form-input {
+    border-radius: 10px;
+    border: 1px solid var(--Dark-06, #E8E8E8);
+    background: #FFF
+}
+
+.login-with-way {}
+
+.login-way-contain {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background-color: rgb(238, 229, 246);
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.login-icon {
+    width: 30px;
+    height: 30px;
+    margin: 12.5px;
+}
