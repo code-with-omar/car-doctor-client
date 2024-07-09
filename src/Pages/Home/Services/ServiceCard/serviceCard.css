@@ -1,0 +1,17 @@
+.service-card-contains {
+    border-radius: 10px;
+    border: 1px solid var(--Dark-06, #E8E8E8);
+    background: #FFF;
+
+}
+
+.service-card-contains img {
+    width: 314px;
+    height: 208.008px;
+    
+}
+.service-arrow {
+    width: 16px;
+    height: 16px;
+    color: var(--orange-01);
+}
