@@ -2,6 +2,7 @@ import { Col, Container, Row, Form } from 'react-bootstrap';
 import './signUp.css';
 import LoginImage from './../../assets/images/login/login.svg';
 import { FaFacebookF, FaLinkedin } from "react-icons/fa";
+
 import Swal from 'sweetalert2'
 
 import { FcGoogle } from "react-icons/fc";
@@ -26,20 +27,20 @@ const SignUp = () => {
                         icon: "success",
                         title: "User Create successfull. Now you can sing in",
                         showConfirmButton: true,
-                        confirmButtonText:"Close"
-                        
+                        confirmButtonText: "Close"
+
                     });
                 }
             })
-            .catch(error=>{
+            .catch(error => {
                 console.log(error)
                 Swal.fire({
                     position: "top",
                     icon: "error",
                     title: "Email is already used",
                     showConfirmButton: true,
-                    confirmButtonText:"Close"
-                    
+                    confirmButtonText: "Close"
+
                 });
             })
         form.reset()
