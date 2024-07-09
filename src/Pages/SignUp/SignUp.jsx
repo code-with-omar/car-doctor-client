@@ -2,17 +2,46 @@ import { Col, Container, Row, Form } from 'react-bootstrap';
 import './signUp.css';
 import LoginImage from './../../assets/images/login/login.svg';
 import { FaFacebookF, FaLinkedin } from "react-icons/fa";
+import Swal from 'sweetalert2'
 
 import { FcGoogle } from "react-icons/fc";
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 const SignUp = () => {
+    const { createUser } = useContext(AuthContext)
     const handleSignUp = (e) => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log({name,email,password})
+        // console.log({ name, email, password })
+        createUser(email, password)
+            .then(result => {
+                const user = result.user
+                if (user) {
+                    Swal.fire({
+                        position: "top-center",
+                        icon: "success",
+                        title: "User Create successfull. Now you can sing in",
+                        showConfirmButton: true,
+                        confirmButtonText:"Close"
+                        
+                    });
+                }
+            })
+            .catch(error=>{
+                console.log(error)
+                Swal.fire({
+                    position: "top",
+                    icon: "error",
+                    title: "Email is already used",
+                    showConfirmButton: true,
+                    confirmButtonText:"Close"
+                    
+                });
+            })
         form.reset()
     }
     return (
@@ -26,17 +55,17 @@ const SignUp = () => {
                     <Form onSubmit={handleSignUp} className='fs-18 fw-600 font-dark-02 form-contain'>
                         <Form.Group className="mb-3">
                             <Form.Label className='mb-3'>Name</Form.Label>
-                            <Form.Control type="name" name='name' className='form-input' placeholder="Enter your name" required/>
+                            <Form.Control type="name" name='name' className='form-input' placeholder="Enter your name" required />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label className='mb-3'>Email address</Form.Label>
-                            <Form.Control type="email" name='email' className='form-input' placeholder="Enter email" required/>
+                            <Form.Control type="email" name='email' className='form-input' placeholder="Enter email" required />
                         </Form.Group>
 
 
                         <Form.Group className="mb-3">
                             <Form.Label className='mb-3'>Password</Form.Label>
-                            <Form.Control type="password" name='password' className='form-input' placeholder="Password" required/>
+                            <Form.Control type="password" name='password' className='form-input' placeholder="Password" required />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Control type="submit" className=' fs-20 fw-600 line-height-30 font-white bg-orange-01' value="Sign Up" />
