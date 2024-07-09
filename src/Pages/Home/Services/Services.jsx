@@ -6,7 +6,7 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('services.json')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => {
                 setServices(data);
@@ -23,7 +23,7 @@ const Services = () => {
                     words which do not look even slightly believable.
                 </p>
             </div>
-            <Row md={3} lg={4} sm={1}className="service pt-5">
+            <Row md={3} lg={4} sm={1} className="service pt-5">
                 {services.map(service => (
                     <ServiceCard key={service._id} service={service} />
                 ))}
