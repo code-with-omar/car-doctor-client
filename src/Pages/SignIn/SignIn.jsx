@@ -1,18 +1,16 @@
-import { Col, Container, Row, Form } from 'react-bootstrap';
-import './signUp.css';
-import LoginImage from './../../assets/images/login/login.svg';
-import { FaFacebookF, FaLinkedin } from "react-icons/fa";
-
-import { FcGoogle } from "react-icons/fc";
+import { Col, Container, Form, Row } from 'react-bootstrap';
+import './../SignUp/signUp.css'
+import LoginImage from './../../assets/images/login/login.svg'
+import { FcGoogle } from 'react-icons/fc';
+import { FaFacebookF, FaLinkedin } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-const SignUp = () => {
-    const handleSignUp = (e) => {
+const SignIn = () => {
+    const handleSignIn = (e) => {
         e.preventDefault()
         const form = e.target;
-        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        console.log({name,email,password})
+        console.log({ email, password })
         form.reset()
     }
     return (
@@ -22,28 +20,25 @@ const SignUp = () => {
                     <img src={LoginImage} />
                 </Col>
                 <Col className='form-contains'>
-                    <h3 className='fs-40 fw-600 text-center font-dark-02 '>Sign Up</h3>
-                    <Form onSubmit={handleSignUp} className='fs-18 fw-600 font-dark-02 form-contain'>
-                        <Form.Group className="mb-3">
-                            <Form.Label className='mb-3'>Name</Form.Label>
-                            <Form.Control type="name" name='name' className='form-input' placeholder="Enter your name" required/>
-                        </Form.Group>
+                    <h3 className='fs-40 fw-600 text-center font-dark-02 '>Sign In</h3>
+                    <Form onSubmit={handleSignIn} className='fs-18 fw-600 font-dark-02 form-contain'>
+
                         <Form.Group className="mb-3">
                             <Form.Label className='mb-3'>Email address</Form.Label>
-                            <Form.Control type="email" name='email' className='form-input' placeholder="Enter email" required/>
+                            <Form.Control type="email" name='email' className='form-input' placeholder="Enter email" required />
                         </Form.Group>
 
 
                         <Form.Group className="mb-3">
                             <Form.Label className='mb-3'>Password</Form.Label>
-                            <Form.Control type="password" name='password' className='form-input' placeholder="Password" required/>
+                            <Form.Control type="password" name='password' className='form-input' placeholder="Password" required />
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Control type="submit" className=' fs-20 fw-600 line-height-30 font-white bg-orange-01' value="Sign Up" />
                         </Form.Group>
                     </Form>
                     <div className='login-with text-center'>
-                        <p className='fs-16 font-dark-02 fw-500 my-3'>Or Sign Up with</p>
+                        <p className='fs-16 font-dark-02 fw-500 my-3'>Or Sign In with</p>
                         <div className="login-with-way d-flex justify-content-center ">
                             <div className='login-way-contain align-items-center d-flex'>
                                 <FcGoogle className='login-icon' />
@@ -58,7 +53,7 @@ const SignUp = () => {
                             </div>
 
                         </div>
-                        <h3 className='fs-18 fw-600 font-dark-03 mt-3'>Have an account? <Link to='/signIn' className='font-orange' > Sign In</Link></h3>
+                        <h3 className='fs-18 fw-600 font-dark-03 mt-3'>Have an not account? <Link to='/signUp' className='font-orange' > Sign Up</Link></h3>
                     </div>
                 </Col>
             </Row>
@@ -66,4 +61,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default SignIn;
