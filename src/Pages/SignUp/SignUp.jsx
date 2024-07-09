@@ -8,10 +8,12 @@ import { Link } from 'react-router-dom';
 const SignUp = () => {
     const handleSignUp = (e) => {
         e.preventDefault()
-        const form=e.target;
-        const email=form.email.value;
-        const password=form.password.value;
-        console.log({email,password})
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log({name,email,password})
+        form.reset()
     }
     return (
         <Container className='form-wrap'>
@@ -22,15 +24,19 @@ const SignUp = () => {
                 <Col className='form-contains'>
                     <h3 className='fs-40 fw-600 text-center font-dark-02 '>Sign Up</h3>
                     <Form onSubmit={handleSignUp} className='fs-18 fw-600 font-dark-02 form-contain'>
-
+                        <Form.Group className="mb-3">
+                            <Form.Label className='mb-3'>Name</Form.Label>
+                            <Form.Control type="name" name='name' className='form-input' placeholder="Enter your name" required/>
+                        </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Label className='mb-3'>Email address</Form.Label>
-                            <Form.Control type="email" name='email' className='form-input' placeholder="Enter email" />
+                            <Form.Control type="email" name='email' className='form-input' placeholder="Enter email" required/>
                         </Form.Group>
+
 
                         <Form.Group className="mb-3">
                             <Form.Label className='mb-3'>Password</Form.Label>
-                            <Form.Control type="password" name='password' className='form-input' placeholder="Password" />
+                            <Form.Control type="password" name='password' className='form-input' placeholder="Password" required/>
                         </Form.Group>
                         <Form.Group className="mb-3">
                             <Form.Control type="submit" className=' fs-20 fw-600 line-height-30 font-white bg-orange-01' value="Submit" />
@@ -52,7 +58,7 @@ const SignUp = () => {
                             </div>
 
                         </div>
-                        <h3 className='fs-18 fw-600 font-dark-03 mt-5'>Have an account? <Link to='/login' className='font-orange' > Sign In</Link></h3>
+                        <h3 className='fs-18 fw-600 font-dark-03 mt-3'>Have an account? <Link to='/login' className='font-orange' > Sign In</Link></h3>
                     </div>
                 </Col>
             </Row>
