@@ -105,6 +105,9 @@
 }
 
 /* background-color  */
+.bg-white{
+    background: var(--white);
+}
 .bg-dark-01 {
     background: var(--dark-01);
 }
