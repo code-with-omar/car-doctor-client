@@ -7,16 +7,21 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const CheckOut = () => {
     const checkOutData = useLoaderData()
-    const { title, price } = checkOutData
+    const { title, price,_id } = checkOutData
     const { user } = useContext(AuthContext)
-    const handleCheckOut=(e)=>{
+    const handleCheckOut = (e) => {
         e.preventDefault()
-        const form=e.target;
-        const name=form.name.value;
-        const email=user?.email|| form.email.value;
-        const price=user?.price|| form.price.value
-        console.log({name,email,price});
-        form.reset()
+        const form = e.target;
+        const name = form.name.value;
+        const email = user?.email || form.email.value;
+        const price = user?.price || form.price.value
+        const customerOrder = {
+            customerName: name,
+            email,
+            service: _id,
+            price
+        }
+        console.log(customerOrder)
     }
     return (
         <Container className='checkout-wrap'>
@@ -30,23 +35,23 @@ const CheckOut = () => {
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridName">
                         <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" name="name" placeholder="Enter Name" defaultValue={user?.name} required/>
+                        <Form.Control type="text" name="name" placeholder="Enter Name" defaultValue={user?.name} required />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridDate">
                         <Form.Label>Date</Form.Label>
-                        <Form.Control type="date" name="date" placeholder="Date" required/>
+                        <Form.Control type="date" name="date" placeholder="Date" required />
                     </Form.Group>
                 </Row>
                 <Row className="mb-3">
                     <Form.Group as={Col} controlId="formGridName">
                         <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" name="email" placeholder="Enter Name" defaultValue={user?.email} required/>
+                        <Form.Control type="email" name="email" placeholder="Enter Name" defaultValue={user?.email} required />
                     </Form.Group>
 
                     <Form.Group as={Col} controlId="formGridDate">
                         <Form.Label>Price</Form.Label>
-                        <Form.Control type="text" name="price" defaultValue={`$ ${price}`} disabled/>
+                        <Form.Control type="text" name="price" defaultValue={`$ ${price}`} disabled />
                     </Form.Group>
                 </Row>
                 <Row>
