@@ -1,8 +1,9 @@
-import { Button, Card, Col } from "react-bootstrap";
+import { Card, Col } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
 import './serviceCard.css'
+import { Link } from "react-router-dom";
 const ServiceCard = ({ service }) => {
-    const { title, img, price } = service
+    const { _id, title, img, price } = service
     return (
         <Col className="service-card-wrap mb-5">
             <Card className="mb-4 h-100 service-card-contains">
@@ -10,8 +11,10 @@ const ServiceCard = ({ service }) => {
                 <Card.Body>
                     <Card.Title className="font-dark-02 fs-25 fw-700 mb-3">{title}</Card.Title>
                     <Card.Text className="d-flex justify-content-between">
-                        <span  className="fs-20 font-orange fw-700">Price: ${price}</span>
-                        <FaArrowRight className="service-arrow"/>
+                        <span className="fs-20 font-orange fw-700">Price: ${price}</span>
+                        <Link to={`services/${_id}`}>
+                            <FaArrowRight className="service-arrow" />
+                        </Link>
                     </Card.Text>
 
                 </Card.Body>
