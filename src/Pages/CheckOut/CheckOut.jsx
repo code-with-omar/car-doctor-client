@@ -7,21 +7,39 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const CheckOut = () => {
     const checkOutData = useLoaderData()
-    const { title, price,_id } = checkOutData
+    const { title, price, _id, img } = checkOutData
     const { user } = useContext(AuthContext)
     const handleCheckOut = (e) => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
+        const date = form.date.value
         const email = user?.email || form.email.value;
         const price = user?.price || form.price.value
-        const customerOrder = {
+        const booking = {
             customerName: name,
             email,
-            service: _id,
+            date,
+            service: title,
+            service_id: _id,
+            img:img,
             price
         }
-        console.log(customerOrder)
+        console.log(booking)
+        //send data database
+        fetch('http://localhost:5000/bookings', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+
+
     }
     return (
         <Container className='checkout-wrap'>
