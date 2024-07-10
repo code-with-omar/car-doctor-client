@@ -3,6 +3,7 @@ import './checkOut.css'
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const CheckOut = () => {
@@ -14,7 +15,7 @@ const CheckOut = () => {
         const form = e.target;
         const name = form.name.value;
         const date = form.date.value
-        const email = user?.email || form.email.value;
+        const email = form.email.value;
         const price = user?.price || form.price.value
         const booking = {
             customerName: name,
@@ -22,7 +23,7 @@ const CheckOut = () => {
             date,
             service: title,
             service_id: _id,
-            img:img,
+            img: img,
             price
         }
         console.log(booking)
@@ -36,9 +37,19 @@ const CheckOut = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-            })
+                if (data.acknowledged) {
+                    Swal.fire({
+                        position: "top",
+                        icon: "success",
+                        title: "Booking Success",
+                        showConfirmButton: true,
+                        confirmButtonText: "Close",
+                        timer: 1500
+                    });
+                }
 
+            })
+        form.reset()
 
     }
     return (
