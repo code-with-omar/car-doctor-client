@@ -12,7 +12,7 @@ const ServiceCard = ({ service }) => {
                     <Card.Title className="font-dark-02 fs-25 fw-700 mb-3">{title}</Card.Title>
                     <Card.Text className="d-flex justify-content-between">
                         <span className="fs-20 font-orange fw-700">Price: ${price}</span>
-                        <Link to={`services/${_id}`}>
+                        <Link to={`service/${_id}`}>
                             <FaArrowRight className="service-arrow" />
                         </Link>
                     </Card.Text>
