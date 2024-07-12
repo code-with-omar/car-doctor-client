@@ -2,6 +2,7 @@
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import Logo from "./../../../assets/logo.svg"
 import './header.css'
+import { Link } from "react-router-dom";
 const Header = () => {
     return (
         <Navbar bg="navbar-wrap fs-18 fw-600 text-center" expand="lg">
@@ -12,11 +13,10 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="mx-auto">
-                        <Nav.Link href="#home" className="mx-3">Home</Nav.Link>
-                        <Nav.Link href="#about" className="mx-3">About</Nav.Link>
-                        <Nav.Link href="#services" className="mx-3">Services</Nav.Link>
-                        <Nav.Link href="#blog" className="mx-3">Blog</Nav.Link>
-                        <Nav.Link href="#contact">Contact</Nav.Link>
+                        <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/'>Home</Link>
+                        <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/addServices'>Add Services</Link>
+                        <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/signUp'>Sign up</Link>
+                        <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/signIn'>Sign In</Link>
                     </Nav>
                     <Nav>
                         <Nav.Link href="#search">
