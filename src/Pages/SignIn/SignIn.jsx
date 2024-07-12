@@ -45,7 +45,7 @@ const SignIn = () => {
                             <Form.Control type="password" name='password' className='form-input' placeholder="Password" required />
                         </Form.Group>
                         <Form.Group className="mb-3">
-                            <Form.Control type="submit" className=' fs-20 fw-600 line-height-30 font-white bg-orange-01' value="Sign Up" />
+                            <Form.Control type="submit" className=' fs-20 fw-600 line-height-30 font-white bg-orange-01' value="Sign In" />
                         </Form.Group>
                     </Form>
                     <div className='login-with text-center'>

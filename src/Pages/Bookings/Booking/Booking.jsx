@@ -1,12 +1,16 @@
 import { Button, Col, Image, Row } from 'react-bootstrap';
 import './booking.css'
+import Swal from 'sweetalert2';
 
-const Booking = ({ booking }) => {
-    const { customerName, price, service, date, img } = booking
+const Booking = ({ booking,handleDeleteBooking }) => {
+
+    const { price, service, date, img, _id } = booking
+    
     return (
         <Row className='booking fs-20 fw-600 mb-5'>
+            
             <Col lg={1} md={1} sm={1}>
-                <Button>X</Button>
+                <Button variant="outline-danger" onClick={() => handleDeleteBooking(_id)}>X</Button>
             </Col>
             <Col lg={1} md={1} sm={1}>
                 <Image src={img} fluid rounded></Image>
