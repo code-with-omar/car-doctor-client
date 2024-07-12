@@ -1,5 +1,6 @@
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import './addServices.css'
+import Swal from 'sweetalert2';
 const AddServices = () => {
     const handleAddServices = (e) => {
         e.preventDefault();
@@ -18,7 +19,7 @@ const AddServices = () => {
         const facilityDescription_3 = form.facilityDescription_3.value;
         const facilityDescription_4 = form.facilityDescription_4.value;
 
-        const facility = [
+        const services = [
             {
                 service_id,
                 title,
@@ -46,8 +47,28 @@ const AddServices = () => {
             }
         ];
 
-        console.log(facility);
-        
+        fetch('http://localhost:5000/addServices', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(services)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    Swal.fire({
+                        position: "top",
+                        icon: "success",
+                        title: "Add Success",
+                        showConfirmButton: true,
+                        confirmButtonText: "Close",
+                        timer: 1500
+                    });
+                }
+            })
+        form.reset()
+
     };
 
 
