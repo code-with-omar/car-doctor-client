@@ -7,12 +7,12 @@ import { useContext } from "react";
 import { AuthContext } from "../../../Provider/AuthProvider";
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
-    const handleLogOut=()=>{
+    const handleLogOut = () => {
         logOut()
-        .then(()=>{})
-        .catch(error=>{
-            console.log(error)
-        })
+            .then(() => { })
+            .catch(error => {
+                console.log(error)
+            })
     }
     return (
         <Navbar bg="navbar-wrap fs-18 fw-600 text-center" expand="lg">
@@ -26,9 +26,13 @@ const Header = () => {
                         <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/'>Home</Link>
                         <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/addServices'>Add Services</Link>
                         <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/signUp'>Sign up</Link>
-                       
+
                         {
-                            user?.email ? <Link className="mx-4 font-dark-02 fs-18 fw-600" onClick={handleLogOut}>LogOut</Link> : <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/signIn'>Log In</Link>
+                            user?.email ? <>
+                                <Link className="mx-4 font-dark-02 fs-18 fw-600" onClick={handleLogOut}>LogOut</Link>
+                                <Link to='/bookings' className="mx-4 font-dark-02 fs-18 fw-600" >Booking</Link>
+
+                            </> : <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/signIn'>Log In</Link>
                         }
 
                     </Nav>

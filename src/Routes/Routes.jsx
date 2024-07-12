@@ -8,6 +8,7 @@ import CheckOut from "../Pages/CheckOut/CheckOut";
 import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import NotFound from "../Pages/NotFound/NotFound";
 import AddServices from "../Pages/AddServices/AddServices";
+import Bookings from "../Pages/Bookings/Bookings";
 
 
 const router = createBrowserRouter([
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
             ,{
                 path:'/addServices',
                 element:<AddServices></AddServices>
+            },
+            {
+                path:'/bookings',
+                element:<Bookings></Bookings>
             }
             ,{
                 path:'*',
