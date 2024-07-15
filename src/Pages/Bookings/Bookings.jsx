@@ -46,12 +46,33 @@ const Bookings = () => {
                                 text: "Your Coffee has been deleted.",
                                 icon: "success"
                             });
-                            const remaining=bookings.filter(booking=>booking._id!==id)
+                            const remaining = bookings.filter(booking => booking._id !== id)
                             setBookings(remaining)
                         }
                     })
             }
         });
+    }
+    const handleUpdate = id => {
+        fetch(`http://localhost:5000/bookings/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'confirm' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount > 0) {
+                    //update status
+                    const remaining = bookings.filter(booking => booking._id !== id)
+                    const updated = bookings(booking => booking._id === id)
+                    updated.status = 'confirm'
+                    const newBookings = [updated, ...remaining]
+                    setBookings(newBookings)
+                }
+            })
     }
     return (
         <Container className="bookings-wrap">
@@ -61,9 +82,9 @@ const Bookings = () => {
                 </div>
             </div>
             <div className="bookings-contains">
-            <h2 className="font-orange fw-700 text-center mb-5 fs-25">Total Booking :{bookings.length}</h2>
+                <h2 className="font-orange fw-700 text-center mb-5 fs-25">Total Booking :{bookings.length}</h2>
                 {
-                    bookings.map(booking=><Booking key={booking._id} booking={booking} handleDeleteBooking={handleDeleteBooking}></Booking>)
+                    bookings.map(booking => <Booking key={booking._id} booking={booking} handleDeleteBooking={handleDeleteBooking} handleUpdate={handleUpdate}></Booking>)
                 }
             </div>
         </Container>

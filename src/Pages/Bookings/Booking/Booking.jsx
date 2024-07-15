@@ -2,13 +2,13 @@ import { Button, Col, Image, Row } from 'react-bootstrap';
 import './booking.css'
 import Swal from 'sweetalert2';
 
-const Booking = ({ booking,handleDeleteBooking }) => {
+const Booking = ({ booking, handleDeleteBooking, handleUpdate }) => {
 
-    const { price, service, date, img, _id } = booking
-    
+    const { price, service, date, img, _id, status } = booking
+
     return (
         <Row className='booking fs-20 fw-600 mb-5'>
-            
+
             <Col lg={1} md={1} sm={1}>
                 <Button variant="outline-danger" onClick={() => handleDeleteBooking(_id)}>X</Button>
             </Col>
@@ -25,7 +25,10 @@ const Booking = ({ booking,handleDeleteBooking }) => {
                 <p>{date}</p>
             </Col>
             <Col lg={2} md={2} sm={2}>
-                <Button className='bg-orange-01 font-white'>Pending</Button>
+                {
+                    status === 'confirm'?<Button className='bg-orange-01 font-white disabled' onClick={() => handleUpdate(_id)}>confirm</Button>:
+                        <Button className='bg-orange-01 font-white' onClick={() => handleUpdate(_id)}>Pending</Button>
+               }
             </Col>
         </Row>
     );
