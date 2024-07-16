@@ -8,20 +8,18 @@ import Swal from "sweetalert2";
 const Bookings = () => {
     const { user, loading } = useContext(AuthContext);
     const [bookings, setBookings] = useState([]);
-
+    const url = `http://localhost:5000/bookings?email=${user.email}`
     useEffect(() => {
-        if (user && user.email) {
-            const url = `http://localhost:5000/bookings?email=${user.email}`;
-            fetch(url)
-                .then(res => res.json())
-                .then(data => {
-                    setBookings(data);
-                })
-                .catch(error => {
-                    console.error("Error fetching bookings:", error);
-                });
-        }
-    }, [user]);
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                setBookings(data);
+            })
+            .catch(error => {
+                console.error("Error fetching bookings:", error);
+            });
+
+    }, [url]);
     const handleDeleteBooking = id => {
         Swal.fire({
             title: "Are you sure?",

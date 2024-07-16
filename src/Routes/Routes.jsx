@@ -9,6 +9,7 @@ import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import NotFound from "../Pages/NotFound/NotFound";
 import AddServices from "../Pages/AddServices/AddServices";
 import Bookings from "../Pages/Bookings/Bookings";
+import PrivateRoute from "./PrivateRoute";
 
 
 const router = createBrowserRouter([
@@ -30,25 +31,25 @@ const router = createBrowserRouter([
             },
             {
                 path: '/order/:id',
-                element:<CheckOut></CheckOut>,
-                loader:({params})=>fetch(`http://localhost:5000/order/${params.id}`)
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/order/${params.id}`)
             },
             {
-                path:'/service/:id',
-                element:<ServiceDetails></ServiceDetails>,
-                loader:({params})=>fetch(`http://localhost:5000/service/${params.id}`)
+                path: '/service/:id',
+                element: <ServiceDetails></ServiceDetails>,
+                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
             }
-            ,{
-                path:'/addServices',
-                element:<AddServices></AddServices>
+            , {
+                path: '/addServices',
+                element: <AddServices></AddServices>
             },
             {
-                path:'/bookings',
-                element:<Bookings></Bookings>
+                path: '/bookings',
+                element: <PrivateRoute><Bookings></Bookings></PrivateRoute>
             }
-            ,{
-                path:'*',
-                element:<NotFound></NotFound>
+            , {
+                path: '*',
+                element: <NotFound></NotFound>
             }
 
         ]
