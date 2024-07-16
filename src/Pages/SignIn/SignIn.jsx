@@ -3,11 +3,14 @@ import './../SignUp/signUp.css'
 import LoginImage from './../../assets/images/login/login.svg'
 import { FcGoogle } from 'react-icons/fc';
 import { FaFacebookF, FaLinkedin } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 const SignIn = () => {
     const { signIn } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location)
     const handleSignIn = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -17,7 +20,7 @@ const SignIn = () => {
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
+                navigate(location?.state ? location?.state:'/')
             })
             .catch(error => {
                 console.log(error)

@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Container, Spinner } from "react-bootstrap";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
+    const location=useLocation()
     if (loading) {
         return (
             <Container className="w-25 m-auto my-5">
@@ -18,7 +19,7 @@ const PrivateRoute = ({ children }) => {
     if (user?.email) {
         return children;
     }
-    return <Navigate to='/signIn' replace></Navigate>
+    return <Navigate state={location.pathname} to='/signIn' replace></Navigate>
 };
 
 export default PrivateRoute;
