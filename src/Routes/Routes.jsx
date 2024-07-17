@@ -11,6 +11,7 @@ import AddServices from "../Pages/AddServices/AddServices";
 import Bookings from "../Pages/Bookings/Bookings";
 import PrivateRoute from "./PrivateRoute";
 import ProductsCreate from "../Pages/productsCreate/ProductsCreate";
+import Orders from "../Pages/Orders/Orders";
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
             {
                 path: '/productsCreates',
                 element: <PrivateRoute><ProductsCreate></ProductsCreate></PrivateRoute>
+            },
+            {
+                path: '/orderProduct/:id',
+                element: <PrivateRoute><Orders></Orders></PrivateRoute>,
+               
             }
             , {
                 path: '*',

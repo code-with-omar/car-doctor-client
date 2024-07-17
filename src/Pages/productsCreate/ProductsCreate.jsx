@@ -10,12 +10,12 @@ const ProductsCreate = () => {
         const image = form.image.value;
         const price = form.price.value;
         const products = {
-                product_id,
-                title,
-                image,
-                price
-            }
-        
+            product_id,
+            title,
+            image,
+            price
+        }
+
         fetch('http://localhost:5000/productsCreates', {
             method: 'POST',
             headers: {
@@ -36,6 +36,7 @@ const ProductsCreate = () => {
                     });
                 }
             })
+        form.reset()
     }
     return (
         <Container>

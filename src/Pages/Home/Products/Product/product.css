@@ -1,0 +1,24 @@
+.product-card-wrap {}
+
+.product-card-contains {
+    border-radius: 10px;
+    border: 1px solid #E8E8E8;
+    background: #FFF;
+}
+
+.product-img {
+    border-radius: 10px;
+    background: #F3F3F3;
+    height: 215px;
+}
+
+.product-card-img {
+    right: 10%;
+    top: 10%;
+    display: none;
+}
+
+.product-card-contains:hover .product-card-img {
+    display: block;
+    cursor: pointer;
+}
