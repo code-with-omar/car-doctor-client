@@ -1,0 +1,38 @@
+[
+    {
+        "product_id": "01",
+        "title": "Car Engine Plug",
+        "img": "https://res.cloudinary.com/docor6dpu/image/upload/v1721199658/6_jwfidm.png",
+        "price": "$20.00"
+    },
+    {
+        "product_id": "02",
+        "title": "Car Air Filter",
+        "img": "https://res.cloudinary.com/docor6dpu/image/upload/v1721199658/3_ddf2n6.png",
+        "price": "$20.00"
+    },
+    {
+        "product_id": "03",
+        "title": "Cools Led Light",
+        "img": "https://res.cloudinary.com/docor6dpu/image/upload/v1721199658/3_ddf2n6.png",
+        "price": "$20.00"
+    },
+    {
+        "product_id": "04",
+        "title": "Cools Red Light",
+        "img": "https://res.cloudinary.com/docor6dpu/image/upload/v1721199658/1_nklvfu.png",
+        "price": "$20.00"
+    },
+    {
+        "product_id": "05",
+        "title": "Cools White Light",
+        "img": "https://res.cloudinary.com/docor6dpu/image/upload/v1721199658/5_x1uugx.png",
+        "price": "$20.00"
+    },
+    {
+        "product_id": "06",
+        "title": "Cools Led Light",
+        "img": "https://res.cloudinary.com/docor6dpu/image/upload/v1721199658/4_uvt5x1.png",
+        "price": "$20.00"
+    }
+]

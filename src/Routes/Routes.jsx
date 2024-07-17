@@ -10,6 +10,7 @@ import NotFound from "../Pages/NotFound/NotFound";
 import AddServices from "../Pages/AddServices/AddServices";
 import Bookings from "../Pages/Bookings/Bookings";
 import PrivateRoute from "./PrivateRoute";
+import ProductsCreate from "../Pages/productsCreate/ProductsCreate";
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
             {
                 path: '/bookings',
                 element: <PrivateRoute><Bookings></Bookings></PrivateRoute>
+            },
+            {
+                path: '/productsCreates',
+                element: <PrivateRoute><ProductsCreate></ProductsCreate></PrivateRoute>
             }
             , {
                 path: '*',
