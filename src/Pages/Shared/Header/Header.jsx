@@ -25,12 +25,14 @@ const Header = () => {
                     <Nav className="mx-auto">
                         <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/'>Home</Link>
                         <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/addServices'>Add Services</Link>
+                        <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/productsCreates'>Add Products</Link>
                         <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/signUp'>Sign up</Link>
 
                         {
                             user?.email ? <>
                                 <Link className="mx-4 font-dark-02 fs-18 fw-600" onClick={handleLogOut}>LogOut</Link>
                                 <Link to='/bookings' className="mx-4 font-dark-02 fs-18 fw-600" >Booking</Link>
+                                <Link to='/orders' className="mx-4 font-dark-02 fs-18 fw-600">Orders</Link>
 
                             </> : <Link className="mx-4 font-dark-02 fs-18 fw-600" to='/signIn'>Log In</Link>
                         }
