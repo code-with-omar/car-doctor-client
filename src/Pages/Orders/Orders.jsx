@@ -18,6 +18,7 @@ const Orders = () => {
         const price = user?.price || form.price.value;
         const order = {
             customerName: name,
+            title,
             email,
             place,
             price,

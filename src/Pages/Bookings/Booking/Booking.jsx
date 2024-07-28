@@ -26,9 +26,9 @@ const Booking = ({ booking, handleDeleteBooking, handleUpdate }) => {
             </Col>
             <Col lg={2} md={2} sm={2}>
                 {
-                    status === 'confirm'?<Button className='bg-orange-01 font-white disabled' onClick={() => handleUpdate(_id)}>confirm</Button>:
+                    status === 'confirm' ? <Button className='bg-orange-01 font-white disabled' onClick={() => handleUpdate(_id)}>confirm</Button> :
                         <Button className='bg-orange-01 font-white' onClick={() => handleUpdate(_id)}>Pending</Button>
-               }
+                }
             </Col>
         </Row>
     );

@@ -12,6 +12,7 @@ import Bookings from "../Pages/Bookings/Bookings";
 import PrivateRoute from "./PrivateRoute";
 import ProductsCreate from "../Pages/productsCreate/ProductsCreate";
 import Orders from "../Pages/Orders/Orders";
+import ProductOrderCheck from "../Pages/ProductOrderCheck/ProductOrderCheck";
 
 
 const router = createBrowserRouter([
@@ -51,12 +52,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/productsCreates',
-                element:<ProductsCreate></ProductsCreate>
+                element: <ProductsCreate></ProductsCreate>
             },
             {
                 path: '/products/:id',
                 element: <PrivateRoute><Orders></Orders></PrivateRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/products/${params.id}`)
+            },
+            {
+                path: '/orders',
+                element: <PrivateRoute><ProductOrderCheck></ProductOrderCheck></PrivateRoute>,
+
             }
             , {
                 path: '*',
