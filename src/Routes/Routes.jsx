@@ -44,7 +44,7 @@ const router = createBrowserRouter([
             }
             , {
                 path: '/addServices',
-                element: <AddServices></AddServices>
+                element: <PrivateRoute><AddServices></AddServices></PrivateRoute>
             },
             {
                 path: '/bookings',
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/productsCreates',
-                element: <ProductsCreate></ProductsCreate>
+                element: <PrivateRoute><ProductsCreate></ProductsCreate></PrivateRoute>
             },
             {
                 path: '/products/:id',
