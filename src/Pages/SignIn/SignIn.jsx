@@ -6,6 +6,7 @@ import { FaFacebookF, FaLinkedin } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import axios from 'axios';
 const SignIn = () => {
     const { signIn } = useContext(AuthContext)
     const location = useLocation()
@@ -19,7 +20,12 @@ const SignIn = () => {
         console.log({ email, password })
         signIn(email, password)
             .then(result => {
-                const user = result.user;
+                const loggedInUser = result.user;
+                const user = { email }
+                axios.post('http://localhost:5000/jwt', user)
+                    .then(res => {
+                        console.log(res.data);
+                    })
                 navigate(location?.state ? location?.state:'/')
             })
             .catch(error => {
